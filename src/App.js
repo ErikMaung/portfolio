@@ -8,7 +8,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <div>
-            <h1>Welcome to My Portfolio</h1>
+            <h1>Welcome to Erik Maungs Portfolio v2</h1>
           </div>
         </Route>
         {/* Add more routes as needed */}
