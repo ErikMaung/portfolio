@@ -5,9 +5,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@mantine/core": "^7.12.1",

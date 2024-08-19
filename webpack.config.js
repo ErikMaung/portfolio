@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/portfolio/',  // Important for routing and loading correctly
+    publicPath: '/',  // Important for routing and loading correctly
   },
   module: {
     rules: [
