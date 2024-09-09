@@ -1,0 +1,44 @@
+.shop-root {
+    display: flex;
+    gap: 16px;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.shop-title-container {
+    padding: 4px 64px;
+
+    @media (max-width: 768px) {
+        padding: 4px 32px;
+    }
+    background-color: #3F5F1F40;
+    box-shadow: #3F5F1F40 0px 0px 16px;
+    border-radius: 16px;
+}
+
+.shop-title {
+    color: #3F5F1F;
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.stats-window {
+    display: flex;
+    margin: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats {
+    margin-top: 0 !important;
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 250ms linear;
+    -webkit-transition: opacity 0.5s ease, transform 0.5s ease, background-color 250ms linear;
+    -ms-transition: opacity 0.5s ease, transform 0.5s ease, background-color 250ms linear;
+}
+
+.stats:hover {
+    opacity: 0.5;
+}

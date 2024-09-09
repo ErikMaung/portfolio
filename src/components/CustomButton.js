@@ -11,10 +11,10 @@ function CustomButton({ label, type, scaleValue, onClick, href }) {
       style={{
         '--scale-value': scaleValue,
       }}
-      component="a" // Makes the button an anchor element
-      href={href} // Adds the href for redirection
-      target="_blank" // Opens the link in a new tab
-      rel="noopener noreferrer" // Security measure to prevent tabnabbing
+      component="a"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {label}
     </Button>

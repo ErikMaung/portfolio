@@ -1,0 +1,24 @@
+.speaker {
+    top: 15px;
+    left: 15px;
+    position: fixed;
+    background-color: #FFFFFF40;
+    border-radius: 100%;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    z-index: 10000;
+}
+
+.fun {
+    width: 144px;
+    height: 144px;
+    border: 6px solid #2c3e5080;
+    box-shadow: 0 0 15px #2c3e5080;
+}
+
+.regular {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #2c3e5080;
+    box-shadow: 0 0 5px #2c3e5080;
+}
