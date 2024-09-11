@@ -11,7 +11,7 @@ const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
     const [showOverlay, setShowOverlay] = useState(false);
 
     const toggleSpeaker = () => {
-        if (!isSpeakerOn) {
+        if (!isSpeakerOn && !isDragging) {
             setShowOverlay(true);
             setTimeout(() => {
                 setShowOverlay(false);
