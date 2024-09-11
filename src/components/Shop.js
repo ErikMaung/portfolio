@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from '@mantine/core';
 import { useState, useEffect } from 'react';
-import CustomButton from './CustomButton'
 import '../common.css';
 import money from '../common.js';
 import './Shop.css';
@@ -41,7 +40,7 @@ const Shop = ({ scaleValue, setIncrementAmt, incrementAmt, mps, setMps, points, 
             </div>
             <div className="button-group vertical gap">
                 <Button
-                    className={`custom-button ${points >= shopPrices[0] ? undefined : 'disabled'}`}
+                    className={`custom-button ${points >= shopPrices[0] ? 'affordable' : 'disabled'}`}
                     radius="xl"
                     size="xl"
                     style={{
@@ -52,7 +51,7 @@ const Shop = ({ scaleValue, setIncrementAmt, incrementAmt, mps, setMps, points, 
                     Upgrade Button Click (+1 mpc): <span className="bold">${money(shopPrices[0])}</span>
                 </Button>
                 <Button
-                    className={`custom-button ${points >= shopPrices[1] ? undefined : 'disabled'}`}
+                    className={`custom-button ${points >= shopPrices[1] ? 'affordable' : 'disabled'}`}
                     radius="xl"
                     size="xl"
                     style={{

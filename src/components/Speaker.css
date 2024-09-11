@@ -1,3 +1,8 @@
+.speaker-container {
+    position: fixed;
+    z-index: 999;
+}
+
 .speaker {
     top: 15px;
     left: 15px;

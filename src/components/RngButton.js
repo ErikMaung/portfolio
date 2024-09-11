@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@mantine/core';
 import { useState } from 'react';
 import './RngButton.css';
+import '../common.css';
 
 function RngButton({ type, scaleValue }) {
   const status = 'Random Number 1-100';

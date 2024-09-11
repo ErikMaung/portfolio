@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@mantine/core';
 import './CustomButton.css';
+import '../common.css';
 
 function CustomButton({ label, type, scaleValue, onClick, href }) {
   return href ? (

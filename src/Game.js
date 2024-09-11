@@ -126,22 +126,21 @@ const Game = ({ scaleValue }) => {
         <Container>
             <div className="button-group vertical scaling" >
                 <RngButton type={"primary"} scaleValue={scaleValue} />
-                <IncrementButton type={"success"} scaleValue={scaleValue} incrementAmt={incrementAmt} setWantsToPlay={setWantsToPlay} setPoints={setPoints} points={points} />
+                <IncrementButton type={"success"} scaleValue={scaleValue} incrementAmt={incrementAmt} wantsToPlay={wantsToPlay} setWantsToPlay={setWantsToPlay} setPoints={setPoints} points={points} />
             </div >
             {wantsToPlay ? <div className="button-group">
                 <Shop scaleValue={scaleValue} setIncrementAmt={setIncrementAmt} incrementAmt={incrementAmt} mps={mps} setMps={setMps} points={points} setPoints={setPoints} shopPrices={shopPrices} setShopPrices={setShopPrices} />
             </div> : undefined}
-            {wantsToPlay ?
-                <div className="button-group">
-                    <CustomButton label={exportedMessage ? exportedMessage : 'Export Save'} type={exportedMessage ? 'success' : 'primary'} onClick={exportSave} scaleValue={scaleValue}></CustomButton>
-                    <label className={`custom-button ${importedMessage ? 'success' : 'primary'}`}>
-                        {importedMessage ? importedMessage : 'Import Save'}
-                        <input
-                            key={fileInputKey} type="file"
-                            onChange={importSave} style={{ display: 'none' }}
-                        />
-                    </label>
-                </div> : undefined}
+            <div className="button-group">
+                <CustomButton label={exportedMessage ? exportedMessage : 'Export Save'} type={exportedMessage ? 'success' : 'secondary'} onClick={exportSave} scaleValue={scaleValue}></CustomButton>
+                <label className={`custom-button ${importedMessage ? 'success' : 'secondary'}`} style={{'--scale-value': scaleValue,}}>
+                    {importedMessage ? importedMessage : 'Import Save'}
+                    <input
+                        key={fileInputKey} type="file"
+                        onChange={importSave} style={{ display: 'none' }}
+                    />
+                </label>
+            </div>
         </Container>
     )
 };
