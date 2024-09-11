@@ -15,10 +15,6 @@ h2 {
   text-decoration: none;
 }
 
-.copy-svg {
-  display: inline;
-}
-
 .flex {
   display: flex;
   flex-direction: row;
@@ -45,7 +41,6 @@ h2 {
 }
 
 .list-item {
-  display: flex;
   opacity: 0;
   transform: translateX(-50px);
   width: inherit;
@@ -60,14 +55,7 @@ h2 {
 }
 
 .list-item a {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 16px;
-  }
-  align-items: center;
+  display: block;
   padding: 10px;
   text-decoration: none;
   color: inherit;

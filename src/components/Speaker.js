@@ -4,7 +4,7 @@ import { ReactComponent as SpeakerOn } from '../assets/speaker-1.svg'; // SVG fo
 import './Speaker.css';
 import Draggable from 'react-draggable';
 
-const Speaker = () => {
+const Speaker = ({ isGame }) => {
     const [isOn, setIsOn] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const toggleSpeaker = () => {
@@ -25,7 +25,7 @@ const Speaker = () => {
     }
 
     return (
-        <Draggable onDrag={handleDrag} onStop={handleStop}>
+        <Draggable disable={!isGame} onDrag={handleDrag} onStop={handleStop}>
             <div className={`speaker ${true ? 'regular' : 'regular'}`} onClick={toggleSpeaker}>
                 {isOn ? <SpeakerOn style={{ display: 'block', margin: '10px' }} /> : <SpeakerOff style={{ display: 'block', margin: '10px' }} />}
             </div>

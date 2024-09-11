@@ -13,7 +13,6 @@ function CustomButton({ label, type, scaleValue, onClick, href }) {
       }}
       component="a"
       href={href}
-      target="_blank"
       rel="noopener noreferrer"
     >
       {label}

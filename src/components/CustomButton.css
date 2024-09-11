@@ -9,6 +9,12 @@
   text-decoration: none;
 }
 
+.custom-button.disabled {
+  background-color: #cfcfcf;
+  color: #808080;
+  pointer-events: none;
+}
+
 .custom-button.primary {
   background-color: #3498db;
   color: white;

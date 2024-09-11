@@ -17,10 +17,46 @@
   text-align: center;
 }
 
+.fade-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.fade-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fade-container.no-space {
+  height: 0px !important;
+  width: 0px !important;
+}
+
 .footer {
   bottom: 10px;
   padding: 2rem;
   border-radius: 15px;
+}
+
+.overlay-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bolder;
+  color: #2c3e50c0;
+  background-color: rgba(255, 255, 255, 0.5); 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+  z-index: 1000; 
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-message.hide {
+  opacity: 0;
+  pointer-events: none; 
 }
 
 .rotate {
