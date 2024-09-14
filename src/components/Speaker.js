@@ -10,25 +10,30 @@ const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
     const [isDragging, setIsDragging] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
 
-    const toggleSpeaker = () => {
-        if (!isSpeakerOn && !isDragging) {
-            setShowOverlay(true);
-            setTimeout(() => {
-                setShowOverlay(false);
-            }, 4000); // 4 sec
+    useEffect(() => {
+        const handleClick = () => {
+            if (!isSpeakerOn && !isDragging) {
+                setShowOverlay(true);
+                setTimeout(() => {
+                    setShowOverlay(false);
+                }, 4000); // 4 sec
+            }
+            setIsSpeakerOn(prevState => (isDragging ? prevState : !prevState));
+        };
+
+        const speakerContainer = document.getElementById('speaker-container');
+        if (speakerContainer) {
+            speakerContainer.addEventListener('click', handleClick);
+            speakerContainer.addEventListener('touchend', handleClick);
         }
-        setIsSpeakerOn(prevState => (isDragging ? prevState : !prevState));
-    };
 
-    const handleDrag = () => {
-        setIsDragging(true);
-    };
-
-    const handleStop = () => {
-        setTimeout(() => {
-            setIsDragging(false);
-        }, 100);
-    };
+        return () => {
+            if (speakerContainer) {
+                speakerContainer.removeEventListener('click', handleClick);
+                speakerContainer.removeEventListener('touchend', handleClick);
+            }
+        };
+    }, [isDragging, isSpeakerOn, setIsSpeakerOn]);
 
     useEffect(() => {
         const audioElement = new Audio(backgroundAudio);
@@ -46,10 +51,20 @@ const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
         };
     }, [isSpeakerOn]);
 
+    const handleDrag = () => {
+        setIsDragging(true);
+    };
+
+    const handleStop = () => {
+        setTimeout(() => {
+            setIsDragging(false);
+        }, 100);
+    };
+
     return (
         <Draggable disable={!isGame} onDrag={handleDrag} onStop={handleStop}>
-            <div className='speaker-container' onClick={toggleSpeaker} onTouchEnd={toggleSpeaker}>
-                <div className={`speaker ${isSpeakerOn ? 'regular' : 'regular'}`}>
+            <div id="speaker-container" className='speaker-container'>
+                <div className='speaker regular'>
                     {isSpeakerOn ? <SpeakerOn style={{ display: 'block', margin: '10px' }} /> : <SpeakerOff style={{ display: 'block', margin: '10px' }} />}
                 </div>
                 <div className={`overlay-message overlay-left-2nd overlay-top-small ${showOverlay ? '' : 'hide'}`} style={{ width: '292px' }}>
