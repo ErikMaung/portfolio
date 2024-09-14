@@ -63,7 +63,7 @@ const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
 
     return (
         <Draggable disable={!isGame} onDrag={handleDrag} onStop={handleStop}>
-            <div id="speaker-container" className='speaker-container'>
+            <div id="speaker-container" className='speaker-container' style={{ cursor: 'pointer' }}>
                 <div className='speaker regular'>
                     {isSpeakerOn ? <SpeakerOn style={{ display: 'block', margin: '10px' }} /> : <SpeakerOff style={{ display: 'block', margin: '10px' }} />}
                 </div>
