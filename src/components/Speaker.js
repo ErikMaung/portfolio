@@ -5,7 +5,6 @@ import './Speaker.css';
 import '../common.css';
 import Draggable from 'react-draggable';
 import backgroundAudio from '../assets/anothermedium.ogg';
-import { isMobile } from 'react-device-detect';
 
 const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
     const [isDragging, setIsDragging] = useState(false);
@@ -47,30 +46,18 @@ const Speaker = ({ isGame, isSpeakerOn, setIsSpeakerOn }) => {
         };
     }, [isSpeakerOn]);
 
-    if (isMobile) {
-        return (
-            <div className='speaker-container'>
-                <div className={`speaker ${isSpeakerOn ? 'regular' : 'regular'}`} onClick={toggleSpeaker}>
+    return (
+        <Draggable disable={!isGame} onDrag={handleDrag} onStop={handleStop}>
+            <div className='speaker-container' onClick={toggleSpeaker} onTouchEnd={toggleSpeaker}>
+                <div className={`speaker ${isSpeakerOn ? 'regular' : 'regular'}`}>
                     {isSpeakerOn ? <SpeakerOn style={{ display: 'block', margin: '10px' }} /> : <SpeakerOff style={{ display: 'block', margin: '10px' }} />}
                 </div>
                 <div className={`overlay-message overlay-left-2nd overlay-top-small ${showOverlay ? '' : 'hide'}`} style={{ width: '292px' }}>
                     Playing: "Another Medium" - Toby Fox
                 </div>
-            </div>);
-    } else {
-        return (
-            <Draggable disable={!isGame} onDrag={handleDrag} onStop={handleStop}>
-                <div className='speaker-container'>
-                    <div className={`speaker ${isSpeakerOn ? 'regular' : 'regular'}`} onClick={toggleSpeaker}>
-                        {isSpeakerOn ? <SpeakerOn style={{ display: 'block', margin: '10px' }} /> : <SpeakerOff style={{ display: 'block', margin: '10px' }} />}
-                    </div>
-                    <div className={`overlay-message overlay-left-2nd overlay-top-small ${showOverlay ? '' : 'hide'}`} style={{ width: '292px' }}>
-                        Playing: "Another Medium" - Toby Fox
-                    </div>
-                </div>
-            </Draggable>
-        );
-    };
+            </div>
+        </Draggable>
+    );
 };
 
 export default Speaker;
